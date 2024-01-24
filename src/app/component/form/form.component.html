@@ -1,1 +1,45 @@
-<p>form works!</p>
+<div class="container pt-4">
+  <div class="bg"></div>
+
+<div class="search">
+  <h1 class="h1-search">Buscar vuelo</h1>
+  <form class="form rounded">
+    <div class="search-form">
+      <div class="row align-items-center">
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              name="inputOrigin"
+              placeholder="Origen"
+              [(ngModel)]="inputOrigin"
+              maxlength="3"
+              pattern="[A-Z]{0,3}"
+              (input)="onInputChange()"
+            />
+            <label for="floatingInput">Origen</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              name="destination"
+              placeholder="Destino"
+              [(ngModel)]="inputDestination"
+              maxlength="3"
+              pattern="[A-Z]{0,3}"
+              (input)="onInputChange()"
+            />
+            <label for="floatingInput">Destino</label>
+          </div>
+        </div>
+        <div class="col">
+          <button (click)="searchJourney()" class="rounded">Buscar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
