@@ -1,0 +1,21 @@
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+  border: 1px solid #ddd; /* Bordes para resaltar el carrusel */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para mejorar la apariencia */
+  border-radius: 8px; /* Esquinas redondeadas */
+}
+
+img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease-in-out; /* Agrega una transición suave al cambiar las imágenes */
+}
+
+.carousel:hover img {
+  transform: scale(1.1); /* Escala la imagen al pasar el ratón para un efecto asombroso */
+}

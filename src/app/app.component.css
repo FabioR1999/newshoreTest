@@ -1,0 +1,10 @@
+h1 {
+  text-align: center; /* Centra el texto */
+  color: #38384c; /* Cambia el color a azul */
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
