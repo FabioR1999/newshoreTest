@@ -1,0 +1,11 @@
+<!-- rate-change.component.html -->
+
+<div>
+  <label for="baseCurrencySelect">Seleccionar Moneda Base:</label>
+  <select id="baseCurrencySelect" [(ngModel)]="baseCurrency" (ngModelChange)="changeBaseCurrency($event)">
+    <option value="USD">Dólares estadounidenses (USD)</option>
+    <option value="COP">Pesos colombianos (COP)</option>
+    <option value="EUR">Euros (EUR)</option>
+    <!-- Agrega más opciones según sea necesario -->
+  </select>
+</div>
