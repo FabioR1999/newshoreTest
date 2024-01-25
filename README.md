@@ -23,17 +23,24 @@ En el contexto de la evaluación técnica, es relevante señalar que la URL de l
 
 **Detalles del Vuelo Seleccionado:** Cuando se selecciona una tarjeta de vuelo, se revelan los detalles específicos del vuelo, como el origen, destino, aerolínea, número de vuelo y precio.
 
-## Funcionalidades y Componentes Clave
 ## Formulario de Búsqueda
 **Campos de Origen y Destino:** Permiten ingresar tres caracteres con validaciones específicas.
+
 **Campo de Moneda:** Permite seleccionar la moneda para mostrar los precios.
+
 **Botón de Búsqueda:** Inicia la búsqueda de vuelos.
+
 ## Resultados de la Búsqueda
 **Tarjetas de Vuelo:** Presentan información clave sobre los vuelos encontrados, como escalas, precio y estaciones.
+
 **Precio Convertido:** El precio se muestra en la moneda seleccionada, considerando el factor de multiplicación proporcionado por la API de intercambio.
+
 **Detalles del Vuelo Seleccionado**
+
 **Detalles del Vuelo:** Se muestran detalles adicionales del vuelo seleccionado, como aerolínea, número de vuelo y detalles de las estaciones.
+
 **Componente Adicional**
+
 **app-btn-new-consult:** Un botón que permite realizar una nueva consulta.
 
 ## Aclaraciones
