@@ -1,0 +1,145 @@
+<!-- <body> -->
+  <div class="container pt-4">
+
+    <div class="search">
+      <form class="form rounded">
+        <div class="search-form">
+          <div class="row align-items-center">
+            <div class="col-sm-12 col-lg-4">
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="inputOrigin"
+                  placeholder="Origen"
+                  [(ngModel)]="inputOrigin"
+                  maxlength="3"
+                  pattern="[A-Z]*[^0-9]+[A-Z]*"
+                  (input)="onInputChange()"
+                />
+                <label for="floatingInput">Origen</label>
+                <span class="error-message">{{ inputOriginErrorMessage }}</span>
+              </div>
+            </div>
+            <div class="col-sm-12 col-lg-4">
+              <div class="form-floating">
+                <input
+                type="text"
+                class="form-control"
+                name="destination"
+                placeholder="Destino"
+                [(ngModel)]="inputDestination"
+                maxlength="3"
+                pattern="[A-Z]*[^0-9]+[A-Z]*"
+                (input)="onInputChange()"
+                [readonly]="isInputDestinationDisabled"
+                />
+                <label for="floatingInput">Destino</label>
+                <span class="error-message">{{ inputDestinationErrorMessage }}</span>
+              </div>
+            </div>
+            <div class="col-sm-12 col-lg-2">
+              <div class="form-floating">
+                <select class="form-select" [(ngModel)]="selectedCurrency" (change)="exchangeRate(selectedCurrency)">
+                  <option value="" disabled selected>Selecciona una moneda</option>
+                  <option value="USD">USD</option>
+                  <option value="COP">COP</option>
+                  <option value="EUR">EUR</option>
+                </select>
+                <label for="floatingInput">Moneda</label>
+              </div>
+            </div>
+            <div class="col-sm-12 col-lg-2">
+              <button (click)="searchJourney()" class="rounded" [disabled]="isButtonDisabled">Buscar vuelo</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="result-search">
+          <div class="result rounded bg-transparent">
+            <!-- <h3 class="h1-search">Resultado de búsqueda</h3> -->
+            <div class="search-form">
+              <div class="row">
+                <div *ngFor="let flight of journeysList" class="col-md-4 mb-3">
+                  <div class="card" (click)="onCardClick(flight)">
+                    <div class="card-body">
+                      <h5 class="card-title" [innerHTML]="getEscalasText(flight)"></h5>
+                    <div class="custom-text flex-container">
+                      <span class="bold-text">{{ flight.price * exchangeApi.multiplicationFactor | currency:'USD':'symbol':'1.2-2' }}</span>
+                      <div class="flex-item">
+                        <p class="flight-info">
+                          {{ flight.flights[0].departureStation }}
+                        </p>
+                        <p class="flight-info">
+                          {{ flight.flights[flight.flights.length - 1].arrivalStation }}
+                        </p>
+                      </div>
+                    </div>
+                    <div class="icon-info">
+                      <i class="fa-solid fa-plane custom-icon"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div *ngIf="flightSelect">
+      <div *ngFor="let flight of flightSelect.flights" class="flight-details">
+        <div class="flight-item">
+          <div class="label">Origen</div>
+          <div class="value">{{ flight.departureStation }}</div>
+        </div>
+        <div class="flight-item">
+          <div class="value">
+            <img src="./assets/imgLine.png" class="custom-image">
+          </div>
+        </div>
+        <div class="flight-item">
+          <div class="label">Destino</div>
+          <div class="value">{{ flight.arrivalStation }}</div>
+        </div>
+        <div class="flight-item">
+          <div class="label">Aerolínea</div>
+          <div class="value">{{ flight.flightCarrier }}</div>
+        </div>
+        <div class="flight-item">
+          <div class="label">Número de vuelo</div>
+          <div class="value">{{ flight.flightNumber }}</div>
+        </div>
+        <div class="flight-item">
+          <div class="label">Precio</div>
+          <!-- <div class="valuePrice">{{ flight.price | currency }}</div> -->
+          <div class="valuePrice">{{ flight.price * exchangeApi.multiplicationFactor | currency:'USD':'symbol':'1.2-2' }}</div>
+        </div>
+      </div>
+
+      <app-btn-new-consult></app-btn-new-consult>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- </body> -->
