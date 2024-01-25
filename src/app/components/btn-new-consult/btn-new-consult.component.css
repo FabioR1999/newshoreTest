@@ -1,0 +1,11 @@
+.btnStyle{
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #FA7A57;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  padding: 15px;
+  color: white;
+  font-size: 14px;
+}
