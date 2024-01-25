@@ -5,6 +5,7 @@ import { Flight } from '../../models/flight';
 import { Journey } from '../../models/journey';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
+
 @Component({
   selector: 'app-form',
   standalone: true,
@@ -17,6 +18,9 @@ export class FormComponent implements OnInit {
   inputDestination: string = '';
   journeysList: Journey[] = [];
   selectedCurrency : string = 'USD'
+
+  // Variable para mantener el vuelo seleccionado por el usuario
+  flightSelect: any;
 
   constructor(
     public api: ApiService,
@@ -67,7 +71,7 @@ export class FormComponent implements OnInit {
         if (flight1.arrivalStation == this.inputDestination) {
           let journey = this.populateJourney(flight1);
           list.push(journey);
-          alert('Vuelo directo encontrado');
+          // alert('Vuelo directo encontrado');
         }
 
         // Acá empieza a buscar vuelos con al menos una escala
@@ -191,5 +195,14 @@ export class FormComponent implements OnInit {
       this.inputOrigin = '';
       this.inputDestination = '';
     }
+  }
+
+  // Función para manejar el clic en una tarjeta de vuelo
+  onCardClick(flight: any) {
+    this.flightSelect = flight;
+  }
+
+  public getEscalasText(flight: any): string {
+    return flight.flights.length - 1 > 0 ? `Escalas: <strong>${flight.flights.length - 1}</strong>` : '<strong>DIRECTO</strong>';
   }
 }
