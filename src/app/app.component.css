@@ -4,7 +4,11 @@ h1 {
 }
 
 .container {
-  max-width: 800px;
-  margin: auto;
+  max-width: 85%;
+  padding: auto;
+  padding-bottom: 3%;
   text-align: center;
+  background-color: #F5F5F7;
+  border-radius: 30px;
+
 }

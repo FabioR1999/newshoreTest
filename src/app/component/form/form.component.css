@@ -112,3 +112,53 @@ a:focus {
 
 
 
+/* .container {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.titulo-principal {
+  color: blue;
+}
+
+.carousel {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel:hover img {
+  transform: scale(1.1);
+}
+
+form {
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: blue;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+} */
