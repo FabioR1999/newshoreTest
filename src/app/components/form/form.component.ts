@@ -69,7 +69,6 @@ export class FormComponent implements OnInit {
     }
 
     this.journeysList = this.searchRoute();
-    console.log(this.journeysList);
 
     if(this.journeysList.length == 0){
       // alert('Ruta no encontrada');
@@ -210,9 +209,8 @@ export class FormComponent implements OnInit {
 
   exchangeRate(capturedValue: string) {
   this.exchangeApi.getCurrency(capturedValue).subscribe(
-    (multiplicationFactor: number) => {
+    () => {
       this.selectedCurrency = capturedValue;
-      console.log(`La tasa de cambio de USD a ${capturedValue} es: ${multiplicationFactor}`);
     },
     (error) => {
       console.error('Error al obtener la tasa de cambio:', error);
@@ -269,6 +267,4 @@ export class FormComponent implements OnInit {
   public getEscalasText(flight: any): string {
     return flight.flights.length - 1 > 0 ? `Escalas: <strong>${flight.flights.length - 1}</strong>` : '<strong>DIRECTO</strong>';
   }
-
-
 }
